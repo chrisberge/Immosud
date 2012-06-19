@@ -241,7 +241,7 @@
     /*--- QUEUE POUR LES REQUETES HTTP ---*/
     
     /*--- REQUETE COVERFLOW ---*/
-    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=ImmosudPortail&url=http://zilek.com/akios_query.pl&coverflow=YES";
+    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&coverflow=YES";
     //NSString *bodyString = @"http://zilek.com/akios_query.pl?coverflow=YES";
     
     NSLog(@"bodyString:%@\n",bodyString);
@@ -359,18 +359,18 @@
     
     NSLog(@"dataBrute long: %d",[responseData length]);
     
-    NSString * string = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSString * string = [[NSString alloc] initWithData:responseData encoding:NSISOLatin1StringEncoding];
     NSLog(@"REPONSE DU WEB: \"%@\"\n",string);
     
     NSError *error = nil;
     
     if ([string length] > 0) {
         
-        NSUInteger zap = 39;
+        NSUInteger zap = 60;
         
         NSData *dataString = [string dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         
-        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(38, [dataString length] - zap)]];
+        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(59, [dataString length] - zap)]];
         
         //ON PARSE DU XML
         
@@ -406,6 +406,9 @@
             
             //COVER FLOW
             NSMutableArray *imagesArray = [[NSMutableArray alloc] init];
+            
+            NSLog(@"ANONNCES: %@", tableauAnnonces1);
+            NSLog(@"VUE: %@", appDelegate.whichView);
             
             for (Annonce *uneAnnonce in tableauAnnonces1) {
                 NSString *photos = [uneAnnonce valueForKey:@"photos"];

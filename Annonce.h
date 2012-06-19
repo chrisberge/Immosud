@@ -11,6 +11,7 @@
 
 @interface Annonce : NSObject {
     NSString *ref;
+    NSString *type;
 	NSString *nb_pieces;
 	NSString *surface;
 	NSString *ville;
@@ -23,11 +24,12 @@
     NSString *etage;
     NSString *ascenseur;
     NSString *chauffage;
-    NSString *code;
+    NSString *date;
 	
 }
 
 @property (nonatomic, retain) NSString *ref;
+@property (nonatomic, retain) NSString *type;
 @property (nonatomic, retain) NSString *nb_pieces;
 @property (nonatomic, retain) NSString *surface;
 @property (nonatomic, retain) NSString *ville;
@@ -40,7 +42,7 @@
 @property (nonatomic, retain) NSString *etage;
 @property (nonatomic, retain) NSString *ascenseur;
 @property (nonatomic, retain) NSString *chauffage;
-@property (nonatomic, retain) NSString *code;
+@property (nonatomic, retain) NSString *date;
 
 
 @end

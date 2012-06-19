@@ -192,7 +192,7 @@
     /*--- QUEUE POUR LES REQUETES HTTP ---*/
     
     /*--- REQUETE POST ---*/
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.akios.fr/immobilier/smart_phone.php?part=ImmosudPortail&url=http://zilek.com/akios_agent_query.pl&pid=%@",
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&url=http://zilek.com/akios_agent_query.pl&pid=%@",
                                        [lAnnonce valueForKey:@"code"]]];
     
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -227,18 +227,18 @@
     
     NSLog(@"dataBrute long: %d",[responseData length]);
     
-    NSString * string = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+    NSString * string = [[[NSString alloc] initWithData:responseData encoding:NSISOLatin1StringEncoding] autorelease];
     NSString *string2 = [string stringByAppendingFormat:@"\n"];
     
     NSLog(@"REPONSE DU WEB: \"%@\"\n",string2);
     
     if ([string length] > 0) {
         
-        NSUInteger zap = 39;
+        NSUInteger zap = 60;
         
         NSData *dataString = [string2 dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         
-        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(38, [dataString length] - zap)]];
+        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(59, [dataString length] - zap)]];
         
         /*--- POUR LE TEST OFF LINE ---
          NSFileManager *fileManager = [NSFileManager defaultManager];

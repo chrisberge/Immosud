@@ -609,21 +609,21 @@
     [scrollView addSubview:envoyez];
     
     //COORDONNEES AGENCE
-    NSString *directory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    /*NSString *directory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     
     NSDictionary *formData = [NSDictionary dictionaryWithContentsOfFile:
                               [directory stringByAppendingPathComponent:@"formData.plist"]];
     
-    if (formData != nil) {
+    if (formData != nil) {*/
         /*--- QUEUE POUR LES REQUETES HTTP ---*/
-        ASINetworkQueue *networkQueue = [[ASINetworkQueue alloc] init];
+        /*ASINetworkQueue *networkQueue = [[ASINetworkQueue alloc] init];
         [networkQueue reset];
         [networkQueue setRequestDidFinishSelector:@selector(requestDone:)];
         [networkQueue setRequestDidFailSelector:@selector(requestFailed:)];
-        [networkQueue setDelegate:self];
+        [networkQueue setDelegate:self];*/
         /*--- QUEUE POUR LES REQUETES HTTP ---*/
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.akios.fr/immobilier/smart_phone.php?part=ImmosudPortail&url=http://zilek.com/akios_agent_query.pl&pid=%@",
+        /*NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&url=http://zilek.com/akios_agent_query.pl&pid=%@",
                                            [lAnnonce valueForKey:@"code"]]];
         
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -634,7 +634,7 @@
         [NSThread detachNewThreadSelector:@selector(printHUD) toTarget:self withObject:nil];
         boutonRetour.userInteractionEnabled = NO;
         
-    }
+    }*/
     
     /*--- CONTACT ---*/
 }
@@ -831,13 +831,13 @@
     
 }
 
-- (void)requestDone:(ASIHTTPRequest *)request
+/*- (void)requestDone:(ASIHTTPRequest *)request
 {
 	NSData *responseData = [request responseData];
     
     NSLog(@"dataBrute long: %d",[responseData length]);
     
-    NSString * string = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+    NSString * string = [[[NSString alloc] initWithData:responseData encoding:NSISOLatin1StringEncoding] autorelease];
     //NSString * string = @"    ";
     NSString *string2 = [string stringByAppendingFormat:@"\n"];
     
@@ -845,11 +845,11 @@
     
     if ([string length] > 0) {
         
-        NSUInteger zap = 39;
+        NSUInteger zap = 60;
         
         NSData *dataString = [string2 dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         
-        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(38, [dataString length] - zap)]];
+        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(59, [dataString length] - zap)]];*/
         
         /*--- POUR LE TEST OFF LINE ---
          NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -860,7 +860,7 @@
          */
         
         
-        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
+        /*NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
         XMLParserFormulaire *parser = [[XMLParserFormulaire alloc] initXMLParser];
         
         [xmlParser setDelegate:parser];
@@ -926,7 +926,7 @@
     [alert release];
     boutonRetour.userInteractionEnabled = YES;
     [pvc.view removeFromSuperview];
-}
+}*/
 
 - (void)viewDidUnload
 {

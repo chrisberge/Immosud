@@ -334,8 +334,7 @@
         return;
     }
     
-    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=ImmosudPortail&url=http://zilek.com/akios_query.pl&";
-    //NSString *bodyString = @"http://zilek.com/akios_query.pl?";
+    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
     
     NSEnumerator *enume;
     NSString *key;
@@ -532,7 +531,7 @@
     
     NSLog(@"dataBrute long: %d",[responseData length]);
     
-    NSString * string = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSString * string = [[NSString alloc] initWithData:responseData encoding:NSISOLatin1StringEncoding];
     
     NSLog(@"REPONSE DU WEB: \"%@\"\n",string);
     
@@ -540,11 +539,11 @@
     
     if ([string length] > 0) {
         
-        NSUInteger zap = 39;
+        NSUInteger zap = 60;
         
         NSData *dataString = [string dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         
-        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(38, [dataString length] - zap)]];
+        NSData *data = [[NSData alloc] initWithData:[dataString subdataWithRange:NSMakeRange(59, [dataString length] - zap)]];
         
         //ON PARSE DU XML
         

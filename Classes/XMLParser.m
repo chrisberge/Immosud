@@ -96,15 +96,7 @@
         
         NSString *elementValueString = currentElementValue;
         
-        if([elementName isEqualToString:@"ville"] || [elementName isEqualToString:@"descriptif"]){
-            elementValueString = [elementValueString stringByReplacingCharactersInRange:NSMakeRange(0, 3) withString:@""];
-        }
-        
-        if (!([elementName isEqualToString:@"ville"]) && !([elementName isEqualToString:@"descriptif"])){
-            elementValueString = [elementValueString stringByReplacingOccurrencesOfString:@" " withString:@""];
-            elementValueString = [elementValueString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-            elementValueString = [elementValueString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        }
+        elementValueString = [elementValueString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         [uneAnnonce setValue:elementValueString forKey:elementName];
     }
