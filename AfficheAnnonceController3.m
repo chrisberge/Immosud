@@ -81,8 +81,8 @@
     //self.view.backgroundColor = [UIColor whiteColor];
     
     //SCROLLVIEW
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, 320, 480)];
-    [scrollView setContentSize:CGSizeMake(320, 1340)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 70, 320, 390)];
+    [scrollView setContentSize:CGSizeMake(320, 1010)];
     [scrollView setScrollEnabled:YES];
     [self.view addSubview:scrollView];
     
@@ -320,205 +320,248 @@
     /*---- INFOS ----*/
     
     /*---- BILAN CONSO ENERGIE ----*/
-    
-    NSString *lettreCE = [lAnnonce valueForKey:@"bilan_ce"];
-    lettreCE = [lettreCE stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        
-    NSString *consoA = @"consommationenergieA";
-    NSString *consoB = @"consommationenergieB";
-    NSString *consoC = @"consommationenergieC";
-    NSString *consoD = @"consommationenergieD";
-    NSString *consoE = @"consommationenergieE";
-    NSString *consoF = @"consommationenergieF";
-    NSString *consoG = @"consommationenergieG";
-    
-    if (![lettreCE isEqualToString:@"A"]) {
-        consoA = [consoA stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoA = [consoA stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreCE isEqualToString:@"B"]) {
-        consoB = [consoB stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoB = [consoB stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreCE isEqualToString:@"C" ]) {
-        consoC = [consoC stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoC = [consoC stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreCE isEqualToString:@"D" ]) {
-        consoD = [consoD stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoD = [consoD stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreCE isEqualToString:@"E"]) {
-        consoE = [consoE stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoE = [consoE stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreCE isEqualToString:@"F" ]) {
-        consoF = [consoF stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoF = [consoF stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreCE isEqualToString:@"G" ]) {
-        consoG = [consoG stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        consoG = [consoG stringByAppendingString:@".png"];
-    }
-    
     UILabel *bilanCe = [[UILabel alloc] initWithFrame:CGRectMake(10, 450, 250, 30)];
     bilanCe.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
     bilanCe.text = @"Bilan consommation énergie";
-    
-    UIImageView *imgConsoA = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoA]];
-    UIImageView *imgConsoB = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoB]];
-    UIImageView *imgConsoC = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoC]];
-    UIImageView *imgConsoD = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoD]];
-    UIImageView *imgConsoE = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoE]];
-    UIImageView *imgConsoF = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoF]];
-    UIImageView *imgConsoG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoG]];
-    
-    [imgConsoA setFrame:CGRectMake(10, 480, 55, 27)];
-    [imgConsoB setFrame:CGRectMake(10, 507, 79, 27)];
-    [imgConsoC setFrame:CGRectMake(10, 534, 104, 27)];
-    [imgConsoD setFrame:CGRectMake(10, 561, 128, 27)];
-    [imgConsoE setFrame:CGRectMake(10, 588, 152, 27)];
-    [imgConsoF setFrame:CGRectMake(10, 615, 176, 27)];
-    [imgConsoG setFrame:CGRectMake(10, 642, 200, 27)];
-    
+    bilanCe.backgroundColor = [UIColor clearColor];
     [scrollView addSubview:bilanCe];
-    [scrollView addSubview:imgConsoA];
-    [scrollView addSubview:imgConsoB];
-    [scrollView addSubview:imgConsoC];
-    [scrollView addSubview:imgConsoD];
-    [scrollView addSubview:imgConsoE];
-    [scrollView addSubview:imgConsoF];
-    [scrollView addSubview:imgConsoG];
     
-    [bilanCe release];
-    [imgConsoA release];
-    [imgConsoB release];
-    [imgConsoC release];
-    [imgConsoD release];
-    [imgConsoE release];
-    [imgConsoF release];
-    [imgConsoG release];
+    NSString *lettreCE = [lAnnonce valueForKey:@"bilan_ce"];
+    //lettreCE = @"C";
+    lettreCE = [lettreCE stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+    int nextY = 500;
+    BOOL isCe = NO;
+    
+    if ([lettreCE length] == 0) {
+        UILabel *bilanCeNC = [[UILabel alloc] initWithFrame:CGRectMake(10, 480, 250, 20)];
+        bilanCeNC.font = [UIFont fontWithName:@"Arial" size:12];
+        bilanCeNC.text = @"NC";
+        [scrollView addSubview:bilanCeNC];
+    }
+    
+    if ([lettreCE length] > 0) {
+        
+        nextY = 670;
+        isCe = YES;
+    
+        NSString *consoA = @"consommationenergieA";
+        NSString *consoB = @"consommationenergieB";
+        NSString *consoC = @"consommationenergieC";
+        NSString *consoD = @"consommationenergieD";
+        NSString *consoE = @"consommationenergieE";
+        NSString *consoF = @"consommationenergieF";
+        NSString *consoG = @"consommationenergieG";
+        
+        if (![lettreCE isEqualToString:@"A"]) {
+            consoA = [consoA stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoA = [consoA stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreCE isEqualToString:@"B"]) {
+            consoB = [consoB stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoB = [consoB stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreCE isEqualToString:@"C" ]) {
+            consoC = [consoC stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoC = [consoC stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreCE isEqualToString:@"D" ]) {
+            consoD = [consoD stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoD = [consoD stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreCE isEqualToString:@"E"]) {
+            consoE = [consoE stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoE = [consoE stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreCE isEqualToString:@"F" ]) {
+            consoF = [consoF stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoF = [consoF stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreCE isEqualToString:@"G" ]) {
+            consoG = [consoG stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            consoG = [consoG stringByAppendingString:@".png"];
+        }
+        
+        UIImageView *imgConsoA = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoA]];
+        UIImageView *imgConsoB = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoB]];
+        UIImageView *imgConsoC = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoC]];
+        UIImageView *imgConsoD = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoD]];
+        UIImageView *imgConsoE = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoE]];
+        UIImageView *imgConsoF = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoF]];
+        UIImageView *imgConsoG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:consoG]];
+        
+        [imgConsoA setFrame:CGRectMake(10, 480, 55, 27)];
+        [imgConsoB setFrame:CGRectMake(10, 507, 79, 27)];
+        [imgConsoC setFrame:CGRectMake(10, 534, 104, 27)];
+        [imgConsoD setFrame:CGRectMake(10, 561, 128, 27)];
+        [imgConsoE setFrame:CGRectMake(10, 588, 152, 27)];
+        [imgConsoF setFrame:CGRectMake(10, 615, 176, 27)];
+        [imgConsoG setFrame:CGRectMake(10, 642, 200, 27)];
+        
+        [scrollView addSubview:imgConsoA];
+        [scrollView addSubview:imgConsoB];
+        [scrollView addSubview:imgConsoC];
+        [scrollView addSubview:imgConsoD];
+        [scrollView addSubview:imgConsoE];
+        [scrollView addSubview:imgConsoF];
+        [scrollView addSubview:imgConsoG];
+        
+        [bilanCe release];
+        [imgConsoA release];
+        [imgConsoB release];
+        [imgConsoC release];
+        [imgConsoD release];
+        [imgConsoE release];
+        [imgConsoF release];
+        [imgConsoG release];
+    }
     
     /*---- BILAN CONSO ENERGIE ----*/
     
     /*---- BILAN CONSO GES ----*/
-    NSString *lettreGES = [lAnnonce valueForKey:@"bilan_ges"];
-    lettreGES = [lettreGES stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    
-    NSString *gesA = @"emissiongesA";
-    NSString *gesB = @"emissiongesB";
-    NSString *gesC = @"emissiongesC";
-    NSString *gesD = @"emissiongesD";
-    NSString *gesE = @"emissiongesE";
-    NSString *gesF = @"emissiongesF";
-    NSString *gesG = @"emissiongesG";
-    
-    if (![lettreGES isEqualToString:@"A"]) {
-        gesA = [gesA stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesA = [gesA stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreGES isEqualToString:@"B"]) {
-        gesB = [gesB stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesB = [gesB stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreGES isEqualToString:@"C"]) {
-        gesC = [gesC stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesC = [gesC stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreGES isEqualToString:@"D"]) {
-        gesD = [gesD stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesD = [gesD stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreGES isEqualToString:@"E"]) {
-        gesE = [gesE stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesE = [gesE stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreGES isEqualToString:@"F"]) {
-        gesF = [gesF stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesF = [gesF stringByAppendingString:@".png"];
-    }
-    
-    if (![lettreGES isEqualToString:@"G"]) {
-        gesG = [gesG stringByAppendingString:@"_grisee.png"];
-    }
-    else{
-        gesG = [gesG stringByAppendingString:@".png"];
-    }
-    
-    UILabel *bilanGes = [[UILabel alloc] initWithFrame:CGRectMake(10, 670, 250, 30)];
+    UILabel *bilanGes = [[UILabel alloc] initWithFrame:CGRectMake(10, nextY, 250, 30)];
     bilanGes.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
     bilanGes.text = @"Bilan émission gaz à effet de serre";
-    
-    UIImageView *imggesA = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesA]];
-    UIImageView *imggesB = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesB]];
-    UIImageView *imggesC = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesC]];
-    UIImageView *imggesD = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesD]];
-    UIImageView *imggesE = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesE]];
-    UIImageView *imggesF = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesF]];
-    UIImageView *imggesG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesG]];
-    
-    [imggesA setFrame:CGRectMake(10, 700, 55, 27)];
-    [imggesB setFrame:CGRectMake(10, 727, 79, 27)];
-    [imggesC setFrame:CGRectMake(10, 754, 104, 27)];
-    [imggesD setFrame:CGRectMake(10, 781, 128, 27)];
-    [imggesE setFrame:CGRectMake(10, 808, 152, 27)];
-    [imggesF setFrame:CGRectMake(10, 835, 176, 27)];
-    [imggesG setFrame:CGRectMake(10, 862, 200, 27)];
-    
+    bilanGes.backgroundColor = [UIColor clearColor];
     [scrollView addSubview:bilanGes];
-    [scrollView addSubview:imggesA];
-    [scrollView addSubview:imggesB];
-    [scrollView addSubview:imggesC];
-    [scrollView addSubview:imggesD];
-    [scrollView addSubview:imggesE];
-    [scrollView addSubview:imggesF];
-    [scrollView addSubview:imggesG];
     
-    [bilanGes release];
-    [imggesA release];
-    [imggesB release];
-    [imggesC release];
-    [imggesD release];
-    [imggesE release];
-    [imggesF release];
-    [imggesG release];
+    NSString *lettreGES = [lAnnonce valueForKey:@"bilan_ges"];
+    //lettreGES = @"D";
+    lettreGES = [lettreGES stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    nextY = nextY + 30;
+    BOOL isGes = NO;
+    
+    if ([lettreGES length] == 0) {
+        UILabel *bilanGesNC = [[UILabel alloc] initWithFrame:CGRectMake(10, nextY, 250, 20)];
+        bilanGesNC.font = [UIFont fontWithName:@"Arial" size:12];
+        bilanGesNC.text = @"NC";
+        [scrollView addSubview:bilanGesNC];
+        
+        nextY = nextY +30;
+    }
+    
+    if ([lettreGES length] > 0) {
+        
+        isGes = YES;
+    
+        NSString *gesA = @"emissiongesA";
+        NSString *gesB = @"emissiongesB";
+        NSString *gesC = @"emissiongesC";
+        NSString *gesD = @"emissiongesD";
+        NSString *gesE = @"emissiongesE";
+        NSString *gesF = @"emissiongesF";
+        NSString *gesG = @"emissiongesG";
+        
+        if (![lettreGES isEqualToString:@"A"]) {
+            gesA = [gesA stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesA = [gesA stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreGES isEqualToString:@"B"]) {
+            gesB = [gesB stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesB = [gesB stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreGES isEqualToString:@"C"]) {
+            gesC = [gesC stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesC = [gesC stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreGES isEqualToString:@"D"]) {
+            gesD = [gesD stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesD = [gesD stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreGES isEqualToString:@"E"]) {
+            gesE = [gesE stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesE = [gesE stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreGES isEqualToString:@"F"]) {
+            gesF = [gesF stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesF = [gesF stringByAppendingString:@".png"];
+        }
+        
+        if (![lettreGES isEqualToString:@"G"]) {
+            gesG = [gesG stringByAppendingString:@"_grisee.png"];
+        }
+        else{
+            gesG = [gesG stringByAppendingString:@".png"];
+        }
+        
+        UIImageView *imggesA = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesA]];
+        UIImageView *imggesB = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesB]];
+        UIImageView *imggesC = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesC]];
+        UIImageView *imggesD = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesD]];
+        UIImageView *imggesE = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesE]];
+        UIImageView *imggesF = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesF]];
+        UIImageView *imggesG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:gesG]];
+        
+        [imggesA setFrame:CGRectMake(10, nextY, 55, 27)];
+        nextY = nextY + 27;
+        [imggesB setFrame:CGRectMake(10, nextY, 79, 27)];
+        nextY = nextY + 27;
+        [imggesC setFrame:CGRectMake(10, nextY, 104, 27)];
+        nextY = nextY + 27;
+        [imggesD setFrame:CGRectMake(10, nextY, 128, 27)];
+        nextY = nextY + 27;
+        [imggesE setFrame:CGRectMake(10, nextY, 152, 27)];
+        nextY = nextY + 27;
+        [imggesF setFrame:CGRectMake(10, nextY, 176, 27)];
+        nextY = nextY + 27;
+        [imggesG setFrame:CGRectMake(10, nextY, 200, 27)];
+        nextY = nextY + 37;
+        
+        [scrollView addSubview:imggesA];
+        [scrollView addSubview:imggesB];
+        [scrollView addSubview:imggesC];
+        [scrollView addSubview:imggesD];
+        [scrollView addSubview:imggesE];
+        [scrollView addSubview:imggesF];
+        [scrollView addSubview:imggesG];
+        
+        [bilanGes release];
+        [imggesA release];
+        [imggesB release];
+        [imggesC release];
+        [imggesD release];
+        [imggesE release];
+        [imggesF release];
+        [imggesG release];
+    }
     /*---- BILAN CONSO GES ----*/
     
     /*--- FICHE TECHNIQUE ---*/
@@ -526,9 +569,11 @@
     /*--- CONTACT ---*/
     //BANDEAU
     UIImageView *contact = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bandeau-contactez-nous.png"]];
-    [contact setFrame:CGRectMake(0,890,320,20)];
+    [contact setFrame:CGRectMake(0,nextY,320,20)];
     [scrollView addSubview:contact];
     [contact release];
+    
+    nextY = nextY + 30;
     
     //TEL
     /*NSError *error = nil;
@@ -566,7 +611,7 @@
     
     //BOUTON ECRIVEZ NOUS
     UIButton *ecrivez = [UIButton buttonWithType:UIButtonTypeCustom];
-    [ecrivez setFrame:CGRectMake(15, 920, 90, 70)];
+    [ecrivez setFrame:CGRectMake(15, nextY, 90, 70)];
     [ecrivez setImage:[UIImage imageNamed:@"contact-agence.png"] forState:UIControlStateNormal];
     /*[ecrivez addTarget:self action:@selector(buttonEcrivez:) 
      forControlEvents:UIControlEventTouchUpInside];*/
@@ -584,7 +629,7 @@
     
     //AJOUTER FAVORIS
     UIButton *favoris = [UIButton buttonWithType:UIButtonTypeCustom];
-    [favoris setFrame:CGRectMake(215, 920, 90, 70)];
+    [favoris setFrame:CGRectMake(215, nextY, 90, 70)];
     [favoris setImage:[UIImage imageNamed:@"ajouter-favoris.png"] forState:UIControlStateNormal];
     [favoris addTarget:self action:@selector(buttonFavoris:) 
       forControlEvents:UIControlEventTouchUpInside];
@@ -592,7 +637,7 @@
     
     //ENVOYEZ AMI
     UIButton *envoyez = [UIButton buttonWithType:UIButtonTypeCustom];
-    [envoyez setFrame:CGRectMake(115, 920, 90, 70)];
+    [envoyez setFrame:CGRectMake(115, nextY, 90, 70)];
     [envoyez setImage:[UIImage imageNamed:@"envoyez-a-un-ami.png"] forState:UIControlStateNormal];
     [envoyez addTarget:self action:@selector(buttonEnvoyez:) 
       forControlEvents:UIControlEventTouchUpInside];
@@ -623,6 +668,14 @@
         [networkQueue go];
         [NSThread detachNewThreadSelector:@selector(printHUD) toTarget:self withObject:nil];
     }*/
+    
+    if (!isCe && !isGes) {
+        [scrollView setContentSize:CGSizeMake(320, 680)];
+    }
+    
+    if ((isCe && !isGes) || (!isCe && isGes)) {
+        [scrollView setContentSize:CGSizeMake(320, 850)];
+    }
     
     /*--- CONTACT ---*/
     

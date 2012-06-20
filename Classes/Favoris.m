@@ -476,6 +476,7 @@
             if(bien1 != nil)
             {
                 [annonceSelected setValue:[bien1 valueForKey:@"ref"] forKey:@"ref"];
+                [annonceSelected setValue:[bien1 valueForKey:@"type"] forKey:@"type"];
                 [annonceSelected setValue:[bien1 valueForKey:@"nb_pieces"] forKey:@"nb_pieces"];
                 [annonceSelected setValue:[bien1 valueForKey:@"surface"] forKey:@"surface"];
                 [annonceSelected setValue:[bien1 valueForKey:@"ville"] forKey:@"ville"];
@@ -488,7 +489,7 @@
                 [annonceSelected setValue:[bien1 valueForKey:@"etage"] forKey:@"etage"];
                 [annonceSelected setValue:[bien1 valueForKey:@"ascenseur"] forKey:@"ascenseur"];
                 [annonceSelected setValue:[bien1 valueForKey:@"chauffage"] forKey:@"chauffage"];
-                [annonceSelected setValue:[bien1 valueForKey:@"code"] forKey:@"code"];
+                [annonceSelected setValue:[bien1 valueForKey:@"date"] forKey:@"date"];
                 
                 appDelegate.annonceBiensFavoris = annonceSelected;
             }
@@ -506,6 +507,7 @@
             if(bien2 != nil)
             {
                 [annonceSelected setValue:[bien2 valueForKey:@"ref"] forKey:@"ref"];
+                [annonceSelected setValue:[bien1 valueForKey:@"type"] forKey:@"type"];
                 [annonceSelected setValue:[bien2 valueForKey:@"nb_pieces"] forKey:@"nb_pieces"];
                 [annonceSelected setValue:[bien2 valueForKey:@"surface"] forKey:@"surface"];
                 [annonceSelected setValue:[bien2 valueForKey:@"ville"] forKey:@"ville"];
@@ -518,7 +520,7 @@
                 [annonceSelected setValue:[bien2 valueForKey:@"etage"] forKey:@"etage"];
                 [annonceSelected setValue:[bien2 valueForKey:@"ascenseur"] forKey:@"ascenseur"];
                 [annonceSelected setValue:[bien2 valueForKey:@"chauffage"] forKey:@"chauffage"];
-                [annonceSelected setValue:[bien2 valueForKey:@"code"] forKey:@"code"];
+                [annonceSelected setValue:[bien2 valueForKey:@"date"] forKey:@"date"];
                 
                 appDelegate.annonceBiensFavoris = annonceSelected;
             }
