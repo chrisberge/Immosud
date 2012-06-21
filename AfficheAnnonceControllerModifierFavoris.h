@@ -13,14 +13,14 @@
 #import "DiapoController3.h"
 #import "AFOpenFlowViewDiapo.h"
 #import "ProgressViewContoller.h"
-#import "FormulaireAnnonce.h"
+#import "FormulaireAnnonceMail.h"
 #import "ImmosudAppDelegate.h"
 
 @class ImmosudAppDelegate;
 
-@interface AfficheAnnonceControllerModifierFavoris : UIViewController <DiapoController3Delegate, FormulaireAnnonceDelegate>{
+@interface AfficheAnnonceControllerModifierFavoris : UIViewController <DiapoController3Delegate, FormulaireAnnonceMailDelegate>{
     Annonce *lAnnonce;
-    Agence *lAgence;
+    //Agence *lAgence;
 	NSMutableArray *imagesArray;
 	ArrayWithIndex *arrayWithIndex;
     AFOpenFlowViewDiapo *myOpenFlowView;

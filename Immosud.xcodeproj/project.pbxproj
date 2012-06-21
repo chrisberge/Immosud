@@ -18,6 +18,7 @@
 		8304014915139A3E00D4DEDE /* email-agence.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8304014815139A3E00D4DEDE /* email-agence.txt */; };
 		8304014B15139A4E00D4DEDE /* telephone-agence.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8304014A15139A4E00D4DEDE /* telephone-agence.txt */; };
 		8304014D15139B0200D4DEDE /* coordonnees-globales.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8304014C15139B0200D4DEDE /* coordonnees-globales.txt */; };
+		831089C115935CB800C746F4 /* FormulaireAnnonceMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 831089C015935CB800C746F4 /* FormulaireAnnonceMail.m */; };
 		83197C9E13DE15E700FC194F /* icone.png in Resources */ = {isa = PBXBuildFile; fileRef = 83197C9D13DE15E700FC194F /* icone.png */; };
 		832D167F1484F5D600831B30 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 832D167E1484F5D600831B30 /* libz.1.2.5.dylib */; };
 		8368060F13D5FE4E0047E32B /* DiapoController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368060E13D5FE4E0047E32B /* DiapoController3.m */; };
@@ -216,6 +217,8 @@
 		8304014815139A3E00D4DEDE /* email-agence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "email-agence.txt"; sourceTree = "<group>"; };
 		8304014A15139A4E00D4DEDE /* telephone-agence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "telephone-agence.txt"; sourceTree = "<group>"; };
 		8304014C15139B0200D4DEDE /* coordonnees-globales.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "coordonnees-globales.txt"; sourceTree = "<group>"; };
+		831089BF15935CB800C746F4 /* FormulaireAnnonceMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaireAnnonceMail.h; sourceTree = "<group>"; };
+		831089C015935CB800C746F4 /* FormulaireAnnonceMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaireAnnonceMail.m; sourceTree = "<group>"; };
 		83197C9D13DE15E700FC194F /* icone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone.png; sourceTree = "<group>"; };
 		832D167E1484F5D600831B30 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		8368060D13D5FE4E0047E32B /* DiapoController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiapoController3.h; sourceTree = "<group>"; };
@@ -898,6 +901,8 @@
 				83ADE7AE15876F4F002C43C0 /* AfficheAnnonceControllerModifierFavoris.m */,
 				8391370815494069003E3114 /* FormulaireAnnonce.h */,
 				8391370915494069003E3114 /* FormulaireAnnonce.m */,
+				831089BF15935CB800C746F4 /* FormulaireAnnonceMail.h */,
+				831089C015935CB800C746F4 /* FormulaireAnnonceMail.m */,
 			);
 			name = "Fiche Detaillee";
 			sourceTree = "<group>";
@@ -1324,6 +1329,7 @@
 				83ADE7AF15876F4F002C43C0 /* AfficheAnnonceControllerModifierFavoris.m in Sources */,
 				83ADE7B215877D34002C43C0 /* AfficheAnnonceControllerFavoris.m in Sources */,
 				83ADE7B51587821B002C43C0 /* AfficheAnnonceControllerAccueil.m in Sources */,
+				831089C115935CB800C746F4 /* FormulaireAnnonceMail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

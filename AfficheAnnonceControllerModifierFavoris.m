@@ -10,7 +10,7 @@
 
 @implementation AfficheAnnonceControllerModifierFavoris
 
-- (void)formulaireAnnonceDidFinish:(FormulaireAnnonce *)controller
+- (void)formulaireAnnonceMailDidFinish:(FormulaireAnnonceMail *)controller
 {
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -702,10 +702,10 @@
     [pool release];
 }
 
-- (void) formulaireGetAgence:(NSNotification *)notify {
+/*- (void) formulaireGetAgence:(NSNotification *)notify {
 	lAgence = [[Agence alloc] init];
     lAgence = [notify object];
-}
+}*/
 
 - (void) formulaireAnnonceReady:(NSNotification *)notify {
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"formulaireGetAnnonce" object: lAnnonce];
@@ -739,7 +739,7 @@
 {
     NSLog(@"Formulaire internet...");
     
-    FormulaireAnnonce *formulaireAnnonce = [[FormulaireAnnonce alloc] init];
+    FormulaireAnnonceMail *formulaireAnnonce = [[FormulaireAnnonceMail alloc] init];
     formulaireAnnonce.delegate = self;
     formulaireAnnonce.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     

@@ -10,7 +10,7 @@
 
 @implementation AfficheAnnonceControllerAccueil
 
-- (void)formulaireAnnonceDidFinish:(FormulaireAnnonce *)controller
+- (void)formulaireAnnonceMailDidFinish:(FormulaireAnnonce *)controller
 {
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -739,7 +739,7 @@
 {
     NSLog(@"Formulaire internet...");
     
-    FormulaireAnnonce *formulaireAnnonce = [[FormulaireAnnonce alloc] init];
+    FormulaireAnnonceMail *formulaireAnnonce = [[FormulaireAnnonceMail alloc] init];
     formulaireAnnonce.delegate = self;
     formulaireAnnonce.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     

@@ -13,11 +13,11 @@
 #import "DiapoController3.h"
 #import "AFOpenFlowViewDiapo.h"
 #import "ProgressViewContoller.h"
-#import "FormulaireAnnonce.h"
+#import "FormulaireAnnonceMail.h"
 
 @protocol AgenceModalViewFicheDelegate;
 
-@interface AfficheAnnonceController3 : UIViewController <DiapoController3Delegate, FormulaireAnnonceDelegate>{
+@interface AfficheAnnonceController3 : UIViewController <DiapoController3Delegate, FormulaireAnnonceMailDelegate>{
     Annonce *lAnnonce;
     Agence *lAgence;
 	NSMutableArray *imagesArray;
