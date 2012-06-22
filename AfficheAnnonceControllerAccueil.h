@@ -20,7 +20,7 @@
 
 @interface AfficheAnnonceControllerAccueil : UIViewController <DiapoController3Delegate, FormulaireAnnonceMailDelegate>{
     Annonce *lAnnonce;
-    Agence *lAgence;
+    //Agence *lAgence;
 	NSMutableArray *imagesArray;
 	ArrayWithIndex *arrayWithIndex;
     AFOpenFlowViewDiapo *myOpenFlowView;

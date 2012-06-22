@@ -13,6 +13,9 @@
 #import "ProgressViewContoller.h"
 #import "XMLParser.h"
 #import "ImmosudAppDelegate.h"
+#import "ASIHTTPRequest.h"
+#import "ASINetworkQueue.h"
+#import "ASIFormDataRequest.h"
 
 @class ImmosudAppDelegate;
 
