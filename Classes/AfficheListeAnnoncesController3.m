@@ -59,7 +59,7 @@
     appDelegate = (ImmosudAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     listeAnnonces = appDelegate.favorisView.tableauAnnonces1;
-    criteres = appDelegate.favorisView.criteres2;
+    criteres = [NSMutableDictionary dictionaryWithDictionary:appDelegate.favorisView.criteres2];
 	
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(nextResults:) name:@"nextResults" object: nil];
     

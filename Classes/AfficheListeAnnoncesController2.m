@@ -59,7 +59,7 @@
     bodyString = @"";
     
     listeAnnonces = appDelegate.accueilView.myTableViewController.tableauAnnonces1;
-    criteres = appDelegate.accueilView.myTableViewController.criteres2;
+    criteres = [NSMutableDictionary dictionaryWithDictionary:appDelegate.accueilView.myTableViewController.criteres2];
 	
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(nextResults:) name:@"nextResults" object: nil];
     
