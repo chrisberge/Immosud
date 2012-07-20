@@ -33,6 +33,7 @@
     ProgressViewContoller *pvc;
     Annonce *annonceSelected;
     NSString *whichView;
+    ImmosudAppDelegate *appDelegate;
 }
 
 @property (nonatomic, assign) NSString *whichView;

@@ -15,6 +15,7 @@
 @synthesize favorisView, agenceView/*, contactView*/;
 @synthesize isAccueil, whichView, infosAgence, tableauAnnonces1;
 @synthesize annonceAccueil, annonceMulti, annonceFavoris, annonceBiensFavoris, annonceModifierFavoris;
+@synthesize url_serveur, partenaire, id_agence;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -37,6 +38,10 @@
 		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
 	}
 	******************/
+    
+    url_serveur = @"http://www.akios.fr/immobilier/smart_phone.php";
+    partenaire = @"Immosud";
+    id_agence = @"IMMOSUD_PORTAIL";
     
 	[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(formulaireAgenceReady:) name:@"formulaireAgenceReady" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(getNextResultsReady:) name:@"getNextResultsReady" object: nil];

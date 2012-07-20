@@ -36,6 +36,9 @@
     Annonce *annonceFavoris;
     Annonce *annonceBiensFavoris;
     Annonce *annonceModifierFavoris;
+    NSString *url_serveur;
+    NSString *partenaire;
+    NSString *id_agence;
 	
 @private
     NSManagedObjectContext *managedObjectContext_;
@@ -59,6 +62,9 @@
 @property (nonatomic, retain) Annonce *annonceFavoris;
 @property (nonatomic, retain) Annonce *annonceBiensFavoris;
 @property (nonatomic, retain) Annonce *annonceModifierFavoris;
+@property (nonatomic, assign) NSString *url_serveur;
+@property (nonatomic, assign) NSString *partenaire;
+@property (nonatomic, assign) NSString *id_agence;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

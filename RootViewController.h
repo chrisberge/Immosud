@@ -37,6 +37,7 @@
     UILabel *labelBudget;
     NSString *bodyString2;
     int nbRequetes;
+    ImmosudAppDelegate *appDelegate;
 }
 
 @property (nonatomic, copy) NSMutableArray *tableauAnnonces1;
@@ -44,7 +45,7 @@
 @property (nonatomic, assign) NSMutableDictionary *criteres2;
 
 -(UIImage *) getImage:(NSString *)cheminImage;
-- (BOOL) sendRequest;
+- (void) makeRequest;
 - (void) sauvegardeRecherches;
 
 @end

@@ -241,8 +241,11 @@
     /*--- QUEUE POUR LES REQUETES HTTP ---*/
     
     /*--- REQUETE COVERFLOW ---*/
-    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&coverflow=YES";
-    //NSString *bodyString = @"http://zilek.com/akios_query.pl?coverflow=YES";
+    //NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&coverflow=YES";
+    NSString *bodyString = [NSString stringWithFormat:@"%@?part=%@&id_agence=%@&coverflow=YES",
+                            appDelegate.url_serveur,
+                            appDelegate.partenaire,
+                            appDelegate.id_agence];
     
     NSLog(@"bodyString:%@\n",bodyString);
     

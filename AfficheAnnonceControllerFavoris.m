@@ -33,7 +33,7 @@
 {
     [imagesArray release];
 	[arrayWithIndex release];
-	[lAnnonce release];
+	//[lAnnonce release];
     [myOpenFlowView release];
     [pvc release];
     myOpenFlowView = nil;

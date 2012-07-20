@@ -80,6 +80,8 @@
 {
     [super viewDidLoad];
     
+    appDelegate = (ImmosudAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(afficheTextReady:) name:@"afficheTextReady" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(coverFlowAgence:) name:@"coverFlowAgence" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(afficheAnnonce3Ready:) name:@"afficheAnnonce3Ready" object: nil];
@@ -212,7 +214,6 @@
     
     tableauAnnonces1 = [[NSMutableArray alloc] init];
     
-    ImmosudAppDelegate *appDelegate = (ImmosudAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.whichView = @"agence";
     
     [NSThread detachNewThreadSelector:@selector(printHUD) toTarget:self withObject:nil];
@@ -434,8 +435,12 @@
 	[networkQueue setRequestDidFailSelector:@selector(requestFailed:)];
 	[networkQueue setDelegate:self];
     /*--- QUEUE POUR LES REQUETES HTTP ---*/
-    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&coverflow=YES";
-    //NSString *bodyString = @"http://zilek.com/akios_query.pl?coverflow=YES";
+    //NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&coverflow=YES";
+    
+    NSString *bodyString = [NSString stringWithFormat:@"%@?part=%@&id_agence=%@&coverflow=YES",
+                            appDelegate.url_serveur,
+                            appDelegate.partenaire,
+                            appDelegate.id_agence];
     
     NSLog(@"bodyString:%@\n",bodyString);
     

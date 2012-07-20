@@ -37,6 +37,7 @@
     UILabel *labelBudget;
     NSString *bodyString2;
     int nbRequetes;
+    ImmosudAppDelegate *appDelegate;
 }
 
 @property (nonatomic, copy) NSMutableArray *tableauAnnonces1;

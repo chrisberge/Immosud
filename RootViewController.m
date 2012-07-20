@@ -14,6 +14,8 @@
 @synthesize tableauAnnonces1, criteres1, criteres2;
 
 - (void)viewDidLoad {
+    appDelegate = (ImmosudAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     /*--- STOCKAGE DES ANNONCES ET CRITERES DE RECHERCHE ---*/
     nbRequetes = 0;
     
@@ -333,7 +335,12 @@
         return;
     }
     
-    NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
+    //NSString *bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
+    NSString *bodyString = [NSString stringWithFormat:@"%@?part=%@&id_agence=%@&",
+                            appDelegate.url_serveur,
+                            appDelegate.partenaire,
+                            appDelegate.id_agence];
+    
     
     NSEnumerator *enume;
     NSString *key;
@@ -618,7 +625,7 @@
             [self sauvegardeRecherches];
             
             [criteres1 setDictionary:tempDictionary];
-            [criteres1 setValue:@"0" forKey:@"transaction"];
+            //[criteres1 setValue:@"0" forKey:@"transaction"];
             
             AfficheListeAnnoncesController2 *afficheListeAnnoncesController = 
             [[AfficheListeAnnoncesController2 alloc] init];
