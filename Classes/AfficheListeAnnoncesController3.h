@@ -29,11 +29,10 @@
     ImmosudAppDelegate *appDelegate;
 }
 
-@property (nonatomic, copy) NSMutableArray *listeAnnonces;
-@property (nonatomic, copy) NSMutableDictionary *criteres;
+//@property (nonatomic, copy) NSMutableArray *listeAnnonces;
+//@property (nonatomic, copy) NSMutableDictionary *criteres;
 @property (nonatomic, copy) Annonce *annonceSelected;
 
-- (id)initFromView:(NSString *)viewName;
 -(NSString *)setTextMinMax:(NSString *)critere unit:(NSString *)unit texte:(NSString *)text;
 - (void)getNextResults;
 

@@ -80,6 +80,6 @@
 @property (nonatomic, retain) RootViewControllerModifierFavoris *rechercheMulti;
 @property (nonatomic, copy) NSMutableArray *tableauAnnonces1;
 @property (nonatomic, copy) Annonce *annonceSelected;
-@property (nonatomic, assign) NSMutableDictionary *criteres2;
+@property (nonatomic, copy) NSMutableDictionary *criteres2;
 
 @end

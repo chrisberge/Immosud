@@ -11,7 +11,7 @@
 
 @implementation AfficheListeAnnoncesController2
 
-@synthesize listeAnnonces, criteres, annonceSelected;
+@synthesize /*listeAnnonces, criteres,*/ annonceSelected;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,8 +59,9 @@
     bodyString = @"";
     
     listeAnnonces = appDelegate.accueilView.myTableViewController.tableauAnnonces1;
-    criteres = [NSMutableDictionary dictionaryWithDictionary:appDelegate.accueilView.myTableViewController.criteres2];
-	
+    //criteres = [NSMutableDictionary dictionaryWithDictionary:appDelegate.accueilView.myTableViewController.criteres2];
+	criteres = appDelegate.accueilView.myTableViewController.criteres2;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(nextResults:) name:@"nextResults" object: nil];
     
     /*UIColor *fond = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
@@ -477,7 +478,12 @@
     appDelegate.whichView = @"listing";
     [appDelegate.tableauAnnonces1 removeAllObjects];
     
-    bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
+    //bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
+    
+    bodyString = [NSString stringWithFormat:@"%@?part=%@&id_agence=%@&",
+                  appDelegate.url_serveur,
+                  appDelegate.partenaire,
+                  appDelegate.id_agence];
     
     NSEnumerator *enume;
     NSString *key;

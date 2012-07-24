@@ -42,7 +42,7 @@
 
 @property (nonatomic, copy) NSMutableArray *tableauAnnonces1;
 @property (nonatomic, copy) NSMutableDictionary *criteres1;
-@property (nonatomic, assign) NSMutableDictionary *criteres2;
+@property (nonatomic, copy) NSMutableDictionary *criteres2;
 
 -(UIImage *) getImage:(NSString *)cheminImage;
 - (void) makeRequest;

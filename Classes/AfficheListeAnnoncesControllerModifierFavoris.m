@@ -11,7 +11,7 @@
 
 @implementation AfficheListeAnnoncesControllerModifierFavoris
 
-@synthesize listeAnnonces, criteres, annonceSelected;
+@synthesize /*listeAnnonces, criteres,*/ annonceSelected;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -497,7 +497,12 @@
     appDelegate.whichView = @"listing";
     [appDelegate.tableauAnnonces1 removeAllObjects];
     
-    bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
+    //bodyString = @"http://www.akios.fr/immobilier/smart_phone.php?part=Immosud&id_agence=IMMOSUD_PORTAIL&";
+    
+    bodyString = [NSString stringWithFormat:@"%@?part=%@&id_agence=%@&",
+                  appDelegate.url_serveur,
+                  appDelegate.partenaire,
+                  appDelegate.id_agence];
     
     NSEnumerator *enume;
     NSString *key;
