@@ -860,7 +860,6 @@
                                    [lAnnonce valueForKey:@"etage"], @"etage",
                                    [lAnnonce valueForKey:@"ascenseur"], @"ascenseur",
                                    [lAnnonce valueForKey:@"chauffage"], @"chauffage",
-                                   [lAnnonce valueForKey:@"code"], @"code",
                                    nil];
     
     NSLog(@"Annonce record: %@", recordAnnonce);
