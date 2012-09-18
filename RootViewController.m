@@ -604,7 +604,7 @@
             else
                 NSLog(@"Error on XML parsing!!!");
             
-            NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+            /*NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                                    @"", @"transaction",
                                                    @"", @"ville1",
                                                    @"", @"ville2",
@@ -620,11 +620,11 @@
                                                    @"", @"prix_maxi",
                                                    @"", @"surface_mini",
                                                    @"", @"surface_maxi",
-                                                   nil];
+                                                   nil];*/
             
             [self sauvegardeRecherches];
             
-            [criteres1 setDictionary:tempDictionary];
+            //[criteres1 setDictionary:tempDictionary];
             //[criteres1 setValue:@"0" forKey:@"transaction"];
             
             AfficheListeAnnoncesController2 *afficheListeAnnoncesController = 
@@ -716,7 +716,6 @@
  */
 
 - (void)viewWillAppear:(BOOL)animated {
-    ImmosudAppDelegate *appDelegate = (ImmosudAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.whichView = @"multicriteres";
     nbRequetes = 0;
     //AFFICHAGE DES CRITERES CHOISIS
